@@ -9,6 +9,6 @@ class test_qpid(transport.TransportCase):
 
     def before_connect(self):
         try:
-            import qpid.messaging  # noqa
+            import proton  # noqa
         except ImportError:
-            raise SkipTest('qpid.messaging not installed')
+            raise SkipTest('proton Python client is not installed')
