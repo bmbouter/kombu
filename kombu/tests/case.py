@@ -205,15 +205,3 @@ def case_no_pypy(cls):
         setup(self)
     cls.setUp = around_setup
     return cls
-
-
-def case_no_python3(cls):
-    setup = cls.setUp
-
-    @wraps(setup)
-    def around_setup(self):
-        if PY3:
-            raise SkipTest('Python3 incompatible')
-        setup(self)
-    cls.setUp = around_setup
-    return cls
